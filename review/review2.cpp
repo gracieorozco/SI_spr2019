@@ -16,30 +16,44 @@ struct Student {
 // input into the student object passed in as an argument.
 Student* populate_fields(Student* x) {
     // TO BE COMPLETED
-    cout << "Input the CWID: ";
-    cin >> x->cwid;
+    std::cout << "Enter CWID: ";
+    std::cin >> x->cwid;
 
+    std::cout << "Enter first name: ";
+    std::cin >> x->first;
+
+    std::cout << "Enter last name: ";
+    std::cin >> x->last;
+
+    std::cout << "Enter number of courses: ";
+    std::cin >> x->num_courses;
+
+    for(int i = 0, j = 1; i < x->num_courses; i++, j++) {
+      std::cout << "Input the name of course #" << j << ": ";
+      std::cin >> x->courses[i];
+    }
     return x;
 }
 
 // Displays the student object passed in.
 void display_student(Student* x) {
     // TO BE COMPLETED
-    std::cout << "Int: " << x->cwid << std::endl;
-  /*  std::cout << "First Name: " << x->first << std::endl;
-    std::cout << "Last Name: " << x->last << std::endl;
-    std::cout << "Number of Courses: " << x->num_courses << std::endl;
-    for (int i = 0; i < x->num_courses; i++) {
-      cout << x->courses[i] << ", ";
+    std::cout << std::endl;
+    std::cout << "CWID: " << x->cwid << std::endl;
+    std::cout << "FIRST NAME: " << x->first << std::endl;
+    std::cout << "LAST NAME: " << x->last << std::endl;
+    std::cout << "COURSES: ";
+    for (int i = 0, j = 1; i < x->num_courses; i++, j++) {
+      std::cout << std::endl << "    " << j << ". " << x->courses[i];
     }
     std::cout << std::endl;
-    */
+
 }
 
 int main() {
     // Declare a Student object in the heap
     Student *s1 = new Student;
-    popukate_fields
+    populate_fields(s1);
     // Call the functions that were completed
     display_student(s1);
 
